@@ -8,12 +8,14 @@ class VerticalDividerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    height = (height-50)/18;
     return Container(
         padding: const EdgeInsets.all(5.0),
 
     child:Container(
       width: 2.0, // Adjust the width as needed
-      height: 52*numCells+6*numCells, // Set height to fill available vertical space
+      height: (height+2)*numCells+6*numCells, // Set height to fill available vertical space
       color: color, // Set the color of the vertical line
     ));
   }

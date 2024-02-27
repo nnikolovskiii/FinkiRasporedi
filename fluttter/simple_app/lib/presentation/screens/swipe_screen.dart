@@ -171,10 +171,7 @@ class _HorizontalSwipeScreenState extends State<HorizontalSwipeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: getDaysLabels(i, i + num),
           ), // This cell won't be affected by vertical scroll
-          Expanded(
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Row(
+           Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 // Center the row horizontally
                 children: [
@@ -188,8 +185,6 @@ class _HorizontalSwipeScreenState extends State<HorizontalSwipeScreen> {
                   ...getDays(i, i + num, list)
                 ],
               ),
-            ),
-          ),
         ],
       ));
       // if (i != 4) days.add(VerticalDividerWidget());

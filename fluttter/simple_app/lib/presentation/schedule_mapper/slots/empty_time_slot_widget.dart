@@ -10,11 +10,12 @@ class EmptyTimeSlotWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-
+    double height = MediaQuery.of(context).size.height;
+    height = (height-50)/18;
     return Stack(
       children: [
         Container(
-          height: 50,
+          height: height,
           width:  (width-90)/num,
 
         ),

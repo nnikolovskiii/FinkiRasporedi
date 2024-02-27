@@ -38,9 +38,9 @@ class LectureWidget extends StatelessWidget {
     required this.segmented, required this.schedule, this.num = 6,
   });
 
-  double getHeight(LectureSlot lecture) {
+  double getHeight(LectureSlot lecture, double height) {
     int interval = lecture.timeTo - lecture.timeFrom;
-    return 50 * interval + 8*(interval-1);
+    return height * interval + 8*(interval-1);
   }
 
   Color hexStringToColor(String? hexString) {
@@ -55,7 +55,8 @@ class LectureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-
+    double height = MediaQuery.of(context).size.height;
+    height = (height-50)/18;
     return GestureDetector(
           onLongPress: () {
         // Show a dialog or perform any action for deleting the lecture
@@ -127,7 +128,7 @@ class LectureWidget extends StatelessWidget {
               // ),
             ),
             child: Container(
-              height: getHeight(lecture),
+              height: getHeight(lecture, height),
               width:  (width-90)/num,
               decoration: BoxDecoration(
                 color: hexToColor(lecture.hexColor ?? "#888888"),

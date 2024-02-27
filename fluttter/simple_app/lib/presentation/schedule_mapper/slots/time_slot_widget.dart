@@ -20,8 +20,9 @@ class TimeSlotWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-
-    List<Widget> timeSlots = generateTimeSlots(width);
+    double height = MediaQuery.of(context).size.height;
+    height = (height-50)/18;
+    List<Widget> timeSlots = generateTimeSlots(width, height);
 
     return Center(
       child: Container(
@@ -35,7 +36,7 @@ class TimeSlotWidget extends StatelessWidget {
     );
   }
 
-  List<Widget> generateTimeSlots(double width) {
+  List<Widget> generateTimeSlots(double width, double height) {
     List<String> timeSlots = [];
     List<Widget> widgets = [];
     if(dayBool){
@@ -56,7 +57,7 @@ class TimeSlotWidget extends StatelessWidget {
     widgets.add(HorizontalDividerWidget(hasColor: true, num: num));
     for (int i = 0; i < timeSlots.length; i++){
       widgets.add(Container(
-        height: 50,
+        height: height,
         width:  (width-90)/num,
         alignment: Alignment.center,
         child: Text(
