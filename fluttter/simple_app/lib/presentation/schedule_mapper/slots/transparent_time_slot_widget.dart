@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TransparentTimeSlotWidget extends StatefulWidget {
@@ -25,7 +24,7 @@ class _TransparentTimeSlotWidgetState extends State<TransparentTimeSlotWidget> {
         print("Widget position: $offset");
       },
       onExit: (_) => setState(() => isHovered = false),
-      child: Container(
+      child: SizedBox(
         height: 50,
         width:  (width-90)/widget.num,
       ),

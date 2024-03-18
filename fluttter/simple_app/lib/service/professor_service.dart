@@ -30,7 +30,8 @@ class ProfessorService {
       final List<dynamic> jsonData = jsonDecode(response.body);
       var list = jsonData.map((json) => Professor.fromJson(json)).toList();
       return list;
-    } else
+    } else {
       throw Exception('Failed to fetch data');
+    }
   }
 }

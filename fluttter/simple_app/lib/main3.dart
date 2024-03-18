@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Flutter Table Example'),
+          title: const Text('Flutter Table Example'),
         ),
-        body: Column(
+        body: const Column(
           children: [
 
             Expanded(
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
 final List<GlobalKey> containerKeys = List.generate(7 * 13, (index) => GlobalKey());
 
 class MyTable extends StatefulWidget {
+  const MyTable({super.key});
+
   @override
   _MyTableState createState() => _MyTableState();
 
@@ -42,7 +46,7 @@ class _MyTableState extends State<MyTable> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
   }
 
   @override
@@ -91,7 +95,7 @@ class _MyTableState extends State<MyTable> with WidgetsBindingObserver {
   void didChangeMetrics() {
     super.didChangeMetrics();
     // Populate renderBoxes after the build
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       for (int i = 0; i < containerKeys.length; i++) {
         renderBoxes[i] = containerKeys[i].currentContext?.findRenderObject() as RenderBox?;
       }
@@ -101,7 +105,7 @@ class _MyTableState extends State<MyTable> with WidgetsBindingObserver {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       // Populate renderBoxes after the build
       for (int i = 0; i < containerKeys.length; i++) {
         renderBoxes[i] = containerKeys[i].currentContext?.findRenderObject() as RenderBox?;
@@ -117,7 +121,7 @@ class _MyTableState extends State<MyTable> with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    WidgetsBinding.instance?.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 }

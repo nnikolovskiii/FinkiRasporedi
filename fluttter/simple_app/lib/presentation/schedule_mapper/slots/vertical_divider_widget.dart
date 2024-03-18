@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:simple_app/presentation/schedule_mapper/slots/transparent_time_slot_widget.dart';
 
 class VerticalDividerWidget extends StatelessWidget {
   final double  numCells;

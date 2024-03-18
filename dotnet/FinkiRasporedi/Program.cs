@@ -3,7 +3,10 @@ using FinkiRasporedi.Repository;
 using FinkiRasporedi.Repository.Data;
 using FinkiRasporedi.Repository.Impl;
 using FinkiRasporedi.Repository.Interface;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +31,29 @@ builder.Services.AddScoped(typeof(ISemesterRepository), typeof(SemesterRepositor
 builder.Services.AddScoped(typeof(IScheduleRepository), typeof(ScheduleRepository));
 builder.Services.AddScoped(typeof(IRoomRepository), typeof(RoomRepository));
 builder.Services.AddScoped(typeof(ILectureRepository), typeof(LectureRepository));
+<<<<<<< HEAD
+builder.Services.AddScoped(typeof(IStudentRepository), typeof(StudentRepository));
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = "StudentSchedulerApp",
+        ValidAudience = "StudentSchedulerApp",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("ThisIsASecretKeyForStudentSchedulerApp"))
+    };
+});
+=======
 builder.Services.AddScoped(typeof(ILectureSlotRepository), typeof(LectureSlotRepository));
+>>>>>>> master
 
 
 

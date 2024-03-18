@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:simple_app/presentation/schedule_mapper/slots/time_slot_widget.dart';
 import 'package:simple_app/presentation/schedule_mapper/slots/vertical_divider_widget.dart';
 
-import '../../domain/models/lecture.dart';
 import '../../domain/models/lecture_slots.dart';
 import '../../domain/models/schedule.dart';
 
@@ -61,6 +60,7 @@ class ScheduleWidget extends StatelessWidget {
                 direction: Axis.horizontal,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                   TimeSlotWidget(startTimeHour: 8, endTimeHour: 19),
                   ...getDayColumns(),
                 ]),
           ),

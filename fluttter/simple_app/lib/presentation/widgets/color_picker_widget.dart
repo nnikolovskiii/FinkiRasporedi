@@ -19,7 +19,7 @@ class ColorPickerScreen extends StatefulWidget {
   LectureSlotService();
   final String? color;
 
-  ColorPickerScreen({
+  ColorPickerScreen({super.key, 
     required this.schedule,
     required this.lectureSlot, required this.update, this.color,
   });
@@ -42,7 +42,7 @@ class _ColorPickerScreenState extends State<ColorPickerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Color Picker'),
+        title: const Text('Color Picker'),
         centerTitle: true,
         elevation: 0,
       ),
@@ -62,7 +62,7 @@ class _ColorPickerScreenState extends State<ColorPickerScreen> {
 
             ),
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
@@ -70,7 +70,7 @@ class _ColorPickerScreenState extends State<ColorPickerScreen> {
               decoration: InputDecoration(
                 labelText: 'Enter Hex Color',
                 suffixIcon: IconButton(
-                  icon: Icon(Icons.check),
+                  icon: const Icon(Icons.check),
                   onPressed: () {
                     _updateColorFromHex();
                   },
@@ -79,15 +79,15 @@ class _ColorPickerScreenState extends State<ColorPickerScreen> {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
+            padding: const EdgeInsets.all(16.0),
+            decoration: const BoxDecoration(
               color: Colors.blue,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
+                const Text(
                   'Selected Color',
                   style: TextStyle(
                     color: Colors.white,
@@ -96,7 +96,7 @@ class _ColorPickerScreenState extends State<ColorPickerScreen> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 Container(
                   height: 50.0,
                   decoration: BoxDecoration(
@@ -106,11 +106,11 @@ class _ColorPickerScreenState extends State<ColorPickerScreen> {
                   child: Center(
                     child: Text(
                       'Hex: ${selectedColor.toHex()}',
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 ElevatedButton(
                   onPressed: () async {
                     widget.lectureSlot.hexColor = selectedColor.toHex().toString();
@@ -139,13 +139,13 @@ class _ColorPickerScreenState extends State<ColorPickerScreen> {
                       );
                     }
                   },
-                  child: Text('Use Color'),
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 16.0),
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
+                  child: const Text('Use Color'),
                 ),
               ],
             ),

@@ -2,7 +2,6 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_app/presentation/schedule_mapper/slots/day_slot_widget.dart';
 import 'package:simple_app/presentation/schedule_mapper/slots/transparent_time_slot_widget.dart';
-import 'package:simple_app/service/schedule_service.dart';
 
 import '../../domain/models/lecture_slots.dart';
 import '../../domain/models/schedule.dart';
@@ -54,7 +53,7 @@ class _HorizontalSwipeScreenState extends State<HorizontalSwipeScreen> {
     int index = position.round();
     controller.animateToPage(
       index,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       curve: Curves.ease,
     );
   }
@@ -70,13 +69,13 @@ class _HorizontalSwipeScreenState extends State<HorizontalSwipeScreen> {
               if (details.delta.dx > 0 && currentPage > 0) {
                 // Swiping right
                 controller.previousPage(
-                  duration: Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 300),
                   curve: Curves.ease,
                 );
               } else if (details.delta.dx < 0 && currentPage < (5 - num)) {
                 // Swiping left
                 controller.nextPage(
-                  duration: Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 300),
                   curve: Curves.ease,
                 );
               }
@@ -90,13 +89,13 @@ class _HorizontalSwipeScreenState extends State<HorizontalSwipeScreen> {
                     DotsIndicator(
                       dotsCount: 5 - num + 1, // Assuming you have 5 pages
                       position: currentPage.toDouble(),
-                      decorator: DotsDecorator(
+                      decorator: const DotsDecorator(
                         color: Colors.grey, // Inactive color
                         activeColor: Colors.blueAccent,
                       ),
                       onTap: _onDotTapped, // Handle dot tap
                     ),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     // Adjust spacing between dropdown and dots
                     Row(
                       children: [
@@ -106,7 +105,7 @@ class _HorizontalSwipeScreenState extends State<HorizontalSwipeScreen> {
                               num = (num % 5) + 1; // Increment num and reset to 1 when it reaches 5
                               if (currentPage != 0) {
                                 controller.previousPage(
-                                  duration: Duration(milliseconds: 300),
+                                  duration: const Duration(milliseconds: 300),
                                   curve: Curves.ease,
                                 );
                                 currentPage -= 1;
@@ -115,7 +114,7 @@ class _HorizontalSwipeScreenState extends State<HorizontalSwipeScreen> {
                           },
                           child: Text(
                             '$num',
-                            style: TextStyle(color: Colors.black),
+                            style: const TextStyle(color: Colors.black),
                           ),
                         ),
                       ],
@@ -232,7 +231,7 @@ class _HorizontalSwipeScreenState extends State<HorizontalSwipeScreen> {
   List<Widget> getDaysLabels(int fromIndex, int toIndex) {
     List<Widget> widgets = [];
     widgets.add(TransparentTimeSlotWidget( num: num +1,));
-    widgets.add(VerticalDividerWidget(numCells: 1, color: Colors.transparent,));
+    widgets.add(const VerticalDividerWidget(numCells: 1, color: Colors.transparent,));
     for (int i = fromIndex; i < 5 && i < toIndex; i++) {
       if (i == 4 || i == toIndex-1){
         widgets.add(DayWidget(
@@ -245,7 +244,7 @@ class _HorizontalSwipeScreenState extends State<HorizontalSwipeScreen> {
           num: num +1,
         ));
         widgets.add(
-            VerticalDividerWidget(numCells: 1, color: Colors.transparent,)
+            const VerticalDividerWidget(numCells: 1, color: Colors.transparent,)
         );
       }
     }

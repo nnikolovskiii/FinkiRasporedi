@@ -16,8 +16,9 @@ class DayWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     double width = MediaQuery.of(context).size.width;
-    return Container(
+    return SizedBox(
       height: 50,
       width: (width-90)/num,
       child: Center(

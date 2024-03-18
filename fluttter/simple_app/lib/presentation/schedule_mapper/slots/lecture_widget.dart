@@ -1,11 +1,9 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:simple_app/presentation/schedule_mapper/slots/transparent_time_slot_widget.dart';
 import 'package:simple_app/presentation/screens/add/add_lecture_slot_screen.dart';
 import 'package:simple_app/service/lecture_slot_service.dart';
 
-import '../../../domain/models/lecture.dart';
 import '../../../domain/models/lecture_slots.dart';
 import '../../../domain/models/schedule.dart';
 import '../../../service/schedule_service.dart';
@@ -62,8 +60,9 @@ class LectureWidget extends StatelessWidget {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
+
             title: Text(lecture.name ?? lecture.lecture!.course.subject.name),
-            content: Text('What actions do you want to perform?'),
+            content: const Text('What actions do you want to perform?'),
             actions: [
               TextButton(
                 onPressed: () async {
@@ -76,7 +75,7 @@ class LectureWidget extends StatelessWidget {
                     ),
                   ); // Close the dialog
                 },
-                child: Text('Delete'),
+                child: const Text('Delete'),
               ),
               TextButton(
                 onPressed: () {
@@ -88,7 +87,7 @@ class LectureWidget extends StatelessWidget {
                     ),
                   ); // Close the dialog
                 },
-                child: Text('Update'),
+                child: const Text('Update'),
               ),
               TextButton(
                 onPressed: () async {
@@ -101,19 +100,18 @@ class LectureWidget extends StatelessWidget {
                     ),
                   ); // Close the dialog
                 },
-                child: Text('Reset'),
+                child: const Text('Reset'),
               ),
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop(); // Close the dialog
                 },
-                child: Text('Cancel'),
+                child: const Text('Cancel'),
               ),
             ],
           ),
         );
       },
-      child: Container(
       child: Stack(
         children: [
           Container(
@@ -156,8 +154,7 @@ class LectureWidget extends StatelessWidget {
               ),
             ),
         ],
-      ),
-    )
+      )
     );
   }
 

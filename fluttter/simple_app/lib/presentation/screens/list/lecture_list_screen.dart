@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:simple_app/domain/models/lecture.dart';
-import 'package:simple_app/presentation/screens/calendar_screen.dart';
 import 'package:simple_app/service/lecture_service.dart';
 
 import '../../../domain/models/lecture_slots.dart';
 import '../../../domain/models/schedule.dart';
 import '../../../service/schedule_service.dart';
 import '../../schedule_mapper/slots/day_slot_widget.dart';
-import '../../widgets/SelectedLecturesProvider.dart';
+
 import '../../widgets/color_picker_widget.dart';
 
 bool isOverlapping(Schedule schedule, Lecture lec) {
@@ -37,7 +35,7 @@ class LectureListScreen extends StatefulWidget {
   final ScheduleService scheduleService =
       ScheduleService(); // Initialize LectureService
 
-  LectureListScreen({
+  LectureListScreen({super.key, 
     required this.professorId,
     required this.professorName,
     required this.courseId,
@@ -71,7 +69,7 @@ class _LectureListScreenState extends State<LectureListScreen> {
         ),
         builder: (BuildContext context, AsyncSnapshot<List<Lecture>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasError) {
@@ -79,7 +77,7 @@ class _LectureListScreenState extends State<LectureListScreen> {
               child: Text('Error: ${snapshot.error}'),
             );
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(
+            return const Center(
               child: Text('No lectures available'),
             );
           } else {
@@ -132,7 +130,7 @@ class _LectureListScreenState extends State<LectureListScreen> {
                                   child: Text('Просторија:', style: TextStyle(fontWeight: FontWeight.bold)),
                                 ),
 
-                                Text('${lecture.room.name}'),
+                                Text(lecture.room.name),
                               ],
                             ),
                           ),
@@ -143,7 +141,7 @@ class _LectureListScreenState extends State<LectureListScreen> {
                           height: 30,
                           color: Colors.grey, // Add color here
                         ),
-                        SizedBox(width: 6,),
+                        const SizedBox(width: 6,),
                         // From
                         Expanded(
                           child: Container(
@@ -176,7 +174,7 @@ class _LectureListScreenState extends State<LectureListScreen> {
                           height: 30,
                           color: Colors.white30, // Add color here
                         ),
-                        SizedBox(width: 6,),
+                        const SizedBox(width: 6,),
                         Expanded(
                           child: Container(
                             margin: const EdgeInsets.fromLTRB(0, 0, 6.0, 0),
@@ -213,15 +211,15 @@ class _LectureListScreenState extends State<LectureListScreen> {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text('Overlap Warning'),
-                            content: Text(
+                            title: const Text('Overlap Warning'),
+                            content: const Text(
                                 'The selected lecture overlaps with an existing one.'),
                             actions: [
                               TextButton(
                                 onPressed: () {
                                   Navigator.pop(context); // Close the dialog
                                 },
-                                child: Text('OK'),
+                                child: const Text('OK'),
                               ),
                             ],
                           );
@@ -232,7 +230,7 @@ class _LectureListScreenState extends State<LectureListScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              ColorPickerScreen(schedule: widget.schedule, lectureSlot: new LectureSlot(lecture: lecture, day: lecture.day, timeFrom: lecture.timeFrom, timeTo: lecture.timeTo), update: false,),
+                              ColorPickerScreen(schedule: widget.schedule, lectureSlot: LectureSlot(lecture: lecture, day: lecture.day, timeFrom: lecture.timeFrom, timeTo: lecture.timeTo), update: false,),
                         ),
                       );
                     }

@@ -13,7 +13,7 @@ class EmptyTimeSlotWidget extends StatelessWidget {
 
     return Stack(
       children: [
-        Container(
+        SizedBox(
           height: 50,
           width:  (width-90)/num,
 

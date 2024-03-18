@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:simple_app/presentation/screens/list/choose_lecture_type_screen.dart';
 import 'package:simple_app/presentation/screens/list/schedule_list_screen.dart';
 import 'package:simple_app/presentation/screens/swipe_screen.dart';
 import 'package:simple_app/presentation/theme/app_theme.dart';
 import 'package:simple_app/service/schedule_service.dart';
 
 import '../../domain/models/schedule.dart';
-import '../schedule_mapper/schedule_widget.dart';
 import '../widgets/ActionButton.dart';
 import '../widgets/ExpandableFab.dart';
 import 'add/add_lecture_slot_screen.dart';
 import 'list/course_list_screen.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: CalendarScreen(1),
   ));
 }
@@ -22,7 +20,7 @@ void main() {
 class CalendarScreen extends StatefulWidget {
   final int scheduleId;
 
-  CalendarScreen(this.scheduleId);
+  const CalendarScreen(this.scheduleId, {super.key});
 
   @override
   _CalendarAppState createState() => _CalendarAppState();
@@ -56,13 +54,13 @@ class _CalendarAppState extends State<CalendarScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ScheduleListScreen(),
+                  builder: (context) => const ScheduleListScreen(),
                 ),
               );
             },
-            child: Text(
+            child: const Text(
               'Распоред',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 16,
                 color: Color(0xFF123499),
               ),
@@ -73,6 +71,7 @@ class _CalendarAppState extends State<CalendarScreen> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+
             Expanded(
               child: scheduleFuture != null
                   ? Center(
@@ -106,7 +105,7 @@ class _CalendarAppState extends State<CalendarScreen> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                    builder: (context) => ScheduleListScreen(),
+                    builder: (context) => const ScheduleListScreen(),
 
                 ),
                 );
@@ -118,7 +117,7 @@ class _CalendarAppState extends State<CalendarScreen> {
             Row(
               children: [
                 const Text("Custom" , style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF0A2472)),),
-                SizedBox(width: 5,),
+                const SizedBox(width: 5,),
                 ActionButton(
                   onPressed: () {
                     Navigator.push(

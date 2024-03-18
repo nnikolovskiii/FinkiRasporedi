@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:simple_app/domain/models/lecture.dart';
 
 class SelectedLecturesProvider extends ChangeNotifier {
-  List<Lecture> _selectedLectures = [];
+  final List<Lecture> _selectedLectures = [];
 
   List<Lecture> get selectedLectures => _selectedLectures;
 

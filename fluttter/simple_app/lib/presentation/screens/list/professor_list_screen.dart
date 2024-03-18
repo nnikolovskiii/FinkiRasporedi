@@ -4,7 +4,7 @@ import 'package:simple_app/domain/models/schedule.dart';
 import 'package:simple_app/service/professor_service.dart';
 import 'package:simple_app/service/course_service.dart';
 
-import '../../widgets/searchBar_widget.dart';
+import '../../widgets/search_bar_widget.dart';
 import 'lecture_list_screen.dart';
 
 class ProfessorListScreen extends StatefulWidget {
@@ -12,8 +12,8 @@ class ProfessorListScreen extends StatefulWidget {
   final String courseId;
   final String courseName;
 
-  ProfessorListScreen(
-      {required this.schedule,
+  const ProfessorListScreen(
+      {super.key, required this.schedule,
       required this.courseId,
       required this.courseName});
 
@@ -29,7 +29,7 @@ class _ProfessorListScreenState extends State<ProfessorListScreen> {
   List<Professor> filteredProfessors = [];
   ProfessorService professorService = ProfessorService();
   CourseService courseService = CourseService();
-  TextEditingController _searchController =
+  final TextEditingController _searchController =
       TextEditingController(); // Add this line
 
   _ProfessorListScreenState(this.courseId, this.courseName);
@@ -71,7 +71,7 @@ class _ProfessorListScreenState extends State<ProfessorListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('$courseName',
+        title: Text(courseName,
           style: const TextStyle(
             fontSize: 16,
             color: Color(0xFF123499),
@@ -93,7 +93,7 @@ class _ProfessorListScreenState extends State<ProfessorListScreen> {
               child: ListView.separated(
                 itemCount: filteredProfessors.length,
                 separatorBuilder: (BuildContext context, int index) =>
-                    Divider(), // Add Divider between items
+                    const Divider(), // Add Divider between items
                 ////////////////////////////
                 itemBuilder: (context, index) {
                   Color backgroundColor = index % 2 == 0 ? Colors.transparent : Colors.grey.shade200;

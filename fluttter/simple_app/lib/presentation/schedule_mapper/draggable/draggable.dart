@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DraggableContainer extends StatefulWidget {
+  const DraggableContainer({super.key});
+
   @override
   _DraggableContainerState createState() => _DraggableContainerState();
 }
@@ -22,7 +23,7 @@ class _DraggableContainerState extends State<DraggableContainer> {
               width: 100.0,
               height: 100.0,
               color: Colors.blue,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Drag me',
                   style: TextStyle(color: Colors.white),
@@ -34,7 +35,7 @@ class _DraggableContainerState extends State<DraggableContainer> {
               width: 100.0,
               height: 100.0,
               color: Colors.blue,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Drag me',
                   style: TextStyle(color: Colors.white),

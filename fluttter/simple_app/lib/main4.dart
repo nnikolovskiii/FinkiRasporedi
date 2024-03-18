@@ -4,10 +4,12 @@ import 'main2.dart';
 import 'main3.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Draggable Example',
       home: Stack(
         children: [
-          MyTable(),
+          const MyTable(),
           DraggableExample(
             // Pass the callback function to DraggableExample
             onStateChange: (renderBox) {

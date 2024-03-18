@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 @immutable
@@ -18,7 +17,7 @@ class ActionButton extends StatelessWidget {
     return Material(
       shape: const CircleBorder(),
       clipBehavior: Clip.antiAlias,
-      color: Color(0xFF0A2472).withOpacity(0.9),
+      color: const Color(0xFF0A2472).withOpacity(0.9),
       elevation: 4,
       child: IconButton(
         onPressed: onPressed,

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:simple_app/presentation/schedule_mapper/slots/empty_time_slot_widget.dart';
 import 'package:simple_app/presentation/schedule_mapper/slots/horizontal_divider_widget.dart';
 
-import '../../domain/models/lecture.dart';
 import '../../domain/models/lecture_slots.dart';
 import '../../domain/models/schedule.dart';
 import 'slots/day_slot_widget.dart';
@@ -51,8 +50,9 @@ class ColumnScheduleWidget extends StatelessWidget {
       } else {
         lectureWidgets.add(EmptyTimeSlotWidget(segmented: segmented, num: num));
       }
-      if (i != 19)
+      if (i != 19) {
         lectureWidgets.add(HorizontalDividerWidget(hasColor: true,num: num));
+      }
     }
     return lectureWidgets;
   }

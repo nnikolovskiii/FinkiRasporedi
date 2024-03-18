@@ -14,7 +14,7 @@ class ChooseLectureScreen extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Choose Lecture'),
+          title: const Text('Choose Lecture'),
         ),
         body: Center(
           child: Column(
@@ -44,9 +44,9 @@ class ChooseLectureScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: const Text(
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
                           'Додади предавање или вежби според термини во распоредот на ФИНКИ.',
                           style: TextStyle(fontSize: 16),
                         ),
@@ -55,7 +55,7 @@ class ChooseLectureScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20), // Add space between the two cards
+              const SizedBox(height: 20), // Add space between the two cards
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Card(
@@ -79,9 +79,9 @@ class ChooseLectureScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: const Text(
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
                           'Додади свои предавања, вежби и лабораториски.',
                           style: TextStyle(fontSize: 16),
                         ),

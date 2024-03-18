@@ -26,7 +26,7 @@ class FieldScreen extends StatefulWidget {
   final Schedule schedule;
   final LectureSlot? lectureSlot; // Nullable LectureSlot parameter
 
-  FieldScreen({
+  const FieldScreen({super.key, 
     required this.schedule,
     this.lectureSlot, // Optional parameter
   });
@@ -61,7 +61,7 @@ class _FieldScreenState extends State<FieldScreen> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Field Screen'),
+          title: const Text('Field Screen'),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -80,11 +80,11 @@ class _FieldScreenState extends State<FieldScreen> {
                         borderRadius: BorderRadius.circular(18),
                         borderSide: BorderSide.none
                     ),
-                    fillColor:  Color(0xFF123499).withOpacity(0.1),
+                    fillColor:  const Color(0xFF123499).withOpacity(0.1),
                     filled: true,
                     prefixIcon: const Icon(Icons.drive_file_rename_outline)),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               DropdownButtonFormField<int>(
                 value: selectedDayIndex,
@@ -99,7 +99,7 @@ class _FieldScreenState extends State<FieldScreen> {
                     borderRadius: BorderRadius.circular(18),
                     borderSide: BorderSide.none,
                   ),
-                  fillColor: Color(0xFF123499).withOpacity(0.1),
+                  fillColor: const Color(0xFF123499).withOpacity(0.1),
                   filled: true,
                   prefixIcon: const Icon(Icons.calendar_today),
                 ),
@@ -127,7 +127,7 @@ class _FieldScreenState extends State<FieldScreen> {
                 ],
               ),
 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   Expanded(
@@ -148,9 +148,9 @@ class _FieldScreenState extends State<FieldScreen> {
                               borderRadius: BorderRadius.circular(18),
                               borderSide: BorderSide.none,
                             ),
-                            fillColor:Color(0xFF123499).withOpacity(0.1),
+                            fillColor:const Color(0xFF123499).withOpacity(0.1),
                             filled: true,
-                            prefixIcon: Icon(Icons.access_time),
+                            prefixIcon: const Icon(Icons.access_time),
                           ),
                           items: hours.map((hour) {
                             return DropdownMenuItem<int>(
@@ -159,11 +159,11 @@ class _FieldScreenState extends State<FieldScreen> {
                             );
                           }).toList(),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                       ],
                     ),
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -182,9 +182,9 @@ class _FieldScreenState extends State<FieldScreen> {
                               borderRadius: BorderRadius.circular(18),
                               borderSide: BorderSide.none,
                             ),
-                            fillColor: Color(0xFF123499).withOpacity(0.1),
+                            fillColor: const Color(0xFF123499).withOpacity(0.1),
                             filled: true,
-                            prefixIcon: Icon(Icons.access_time),
+                            prefixIcon: const Icon(Icons.access_time),
                           ),
                           items: hours.map((hour) {
                             return DropdownMenuItem<int>(
@@ -193,14 +193,14 @@ class _FieldScreenState extends State<FieldScreen> {
                             );
                           }).toList(),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                       ],
                     ),
                   ),
                 ],
               ),
 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   String name = nameController.text;
@@ -226,15 +226,15 @@ class _FieldScreenState extends State<FieldScreen> {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text('Overlap Warning'),
-                            content: Text(
+                            title: const Text('Overlap Warning'),
+                            content: const Text(
                                 'The selected lecture overlaps with an existing one.'),
                             actions: [
                               TextButton(
                                 onPressed: () {
                                   Navigator.pop(context); // Close the dialog
                                 },
-                                child: Text('OK'),
+                                child: const Text('OK'),
                               ),
                             ],
                           );
@@ -267,15 +267,15 @@ class _FieldScreenState extends State<FieldScreen> {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text('Overlap Warning'),
-                            content: Text(
+                            title: const Text('Overlap Warning'),
+                            content: const Text(
                                 'The selected lecture overlaps with an existing one.'),
                             actions: [
                               TextButton(
                                 onPressed: () {
                                   Navigator.pop(context); // Close the dialog
                                 },
-                                child: Text('OK'),
+                                child: const Text('OK'),
                               ),
                             ],
                           );
@@ -298,7 +298,7 @@ class _FieldScreenState extends State<FieldScreen> {
                     }
                   }
                 },
-                child: Text('Save'),
+                child: const Text('Save'),
               ),
             ],
           ),

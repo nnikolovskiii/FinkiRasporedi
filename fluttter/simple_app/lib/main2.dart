@@ -10,8 +10,8 @@ class DraggableExample extends StatefulWidget {
 }
 
 class _DraggableExampleState extends State<DraggableExample> {
-  GlobalKey _draggableKey = GlobalKey();
-  Offset _offset = Offset(200, 250);
+  final GlobalKey _draggableKey = GlobalKey();
+  Offset _offset = const Offset(200, 250);
 
   @override
   Widget build(BuildContext context) {

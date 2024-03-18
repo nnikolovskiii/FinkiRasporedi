@@ -1,4 +1,3 @@
-import 'package:simple_app/domain/models/lecture.dart';
 
 import 'lecture_slots.dart';
 

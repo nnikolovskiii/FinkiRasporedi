@@ -66,8 +66,9 @@ class TimeSlotWidget extends StatelessWidget {
           ),
         ),
       ));
-      if (i != timeSlots.length -1)
+      if (i != timeSlots.length -1) {
         widgets.add(HorizontalDividerWidget(hasColor: true, num:num));
+      }
     }
 
       return widgets;
